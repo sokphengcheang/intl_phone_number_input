@@ -7,7 +7,7 @@ class Item extends StatelessWidget {
   final Country? country;
   final bool? showFlag;
   final bool? useEmoji;
-  final bool? showArrowDown;
+  final bool showArrowDown;
   final TextStyle? textStyle;
   final bool withCountryNames;
   final double? leadingPadding;
