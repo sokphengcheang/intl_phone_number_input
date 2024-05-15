@@ -48,7 +48,7 @@ class Item extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: textStyle,
           ),
-          SizedBox(width: showArrowDown ? 5 : 0),
+          SizedBox(width: showArrowDown ? 10 : 0),
           showArrowDown
               ? Icon(
                   Icons.arrow_drop_down_rounded,
