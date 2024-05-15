@@ -164,7 +164,6 @@ class DirectionalCountryListTile extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
       ),
-      subtitle: SizedBox(),
       onTap: () => Navigator.of(context).pop(country),
     );
   }
