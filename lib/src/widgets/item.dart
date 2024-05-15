@@ -7,6 +7,7 @@ class Item extends StatelessWidget {
   final Country? country;
   final bool? showFlag;
   final bool? useEmoji;
+  final bool? showArrowDown;
   final TextStyle? textStyle;
   final bool withCountryNames;
   final double? leadingPadding;
@@ -18,6 +19,7 @@ class Item extends StatelessWidget {
     this.showFlag,
     this.useEmoji,
     this.textStyle,
+    this.showArrowDown = false,
     this.withCountryNames = false,
     this.leadingPadding = 12,
     this.trailingSpace = true,
@@ -40,12 +42,19 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          SizedBox(width: 12.0),
+          SizedBox(width: 10.0),
           Text(
             '$dialCode',
             textDirection: TextDirection.ltr,
             style: textStyle,
           ),
+          SizedBox(width: showArrowDown ? 5 : 0),
+          showArrowDown
+              ? Icon(
+                  Icons.arrow_drop_down_rounded,
+                  size: 24,
+                )
+              : SizedBox(),
         ],
       ),
     );
@@ -69,13 +78,15 @@ class _Flag extends StatelessWidget {
                     Utils.generateFlagEmojiUnicode(country?.alpha2Code ?? ''),
                     style: Theme.of(context).textTheme.headlineSmall,
                   )
-                : Image.asset(
-                    country!.flagUri,
-                    width: 32.0,
-                    package: 'intl_phone_number_input',
-                    errorBuilder: (context, error, stackTrace) {
-                      return SizedBox.shrink();
-                    },
+                : SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage(
+                        country!.flagUri,
+                        package: 'intl_phone_number_input',
+                      ),
+                    ),
                   ),
           )
         : SizedBox.shrink();

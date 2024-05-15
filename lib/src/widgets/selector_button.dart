@@ -56,6 +56,8 @@ class SelectorButton extends StatelessWidget {
               )
             : Item(
                 country: country,
+                showArrowDown: selectorConfig.selectorType ==
+                    PhoneInputSelectorType.BOTTOM_SHEET,
                 showFlag: selectorConfig.showFlags,
                 useEmoji: selectorConfig.useEmoji,
                 leadingPadding: selectorConfig.leadingPadding,
